@@ -1,1 +1,1 @@
-# mlops
+# MLOPS Course URFU 
