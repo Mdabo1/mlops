@@ -31,4 +31,4 @@ y_train.to_csv("y_train.csv")
 X_test.to_csv("X_test.csv")
 y_test.to_csv("y_test.csv")
 
-print('Data created')
+print("Data created")
