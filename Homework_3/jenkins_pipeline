@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Mdabo1/mlops.git']])
+            }
+        }
+        stage('Requirements') {
+            steps {
+                sh 'pip install -r requirements.txt'
+            }
+        }
+        stage('Create dataset') {
+            steps {
+                sh 'python3 Homework_2/data_creation.py'
+            }
+        }
+        stage('Data Preprocessing') {
+            steps {
+                sh 'python3 Homework_2/model_preprocessing.py'
+            }
+        }
+        stage('Model Training') {
+            steps {
+                sh 'python3 Homework_2/model_preparation.py'
+            }
+        }
+        stage('Model Testing') {
+            steps {
+                sh 'python3 Homework_2/model_testing.py'
+            }
+        }
+    }
+}
