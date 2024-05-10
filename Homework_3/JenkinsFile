@@ -14,22 +14,22 @@ pipeline {
         }
         stage('Create dataset') {
             steps {
-                sh 'python3 Homework_2/data_creation.py'
+                sh 'python3 Homework_3/src/data_creation.py'
             }
         }
         stage('Data Preprocessing') {
             steps {
-                sh 'python3 Homework_2/model_preprocessing.py'
+                sh 'python3 Homework_3/src/model_preprocessing.py'
             }
         }
         stage('Model Training') {
             steps {
-                sh 'python3 Homework_2/model_preparation.py'
+                sh 'python3 Homework_3/src/model_preparation.py'
             }
         }
         stage('Model Testing') {
             steps {
-                sh 'python3 Homework_2/model_testing.py'
+                sh 'uvicorn Homework_3.src.model_testing:app --reload'
             }
         }
     }
