@@ -15,7 +15,7 @@ data = {
     "Email": [fake.email() for _ in range(num_rows)],
     "Phone Number": [fake.phone_number() for _ in range(num_rows)],
     "Job": [fake.job() for _ in range(num_rows)],
-    "Age": np.random.randint(18, 80, size=num_rows),
+    "Age": np.random.randint(14, 80, size=num_rows),
     "Income": [random.choice(["High", "Low"]) for _ in range(num_rows)],
 }
 
@@ -31,6 +31,6 @@ df = pd.DataFrame(data)
 # X_test.to_csv("X_test.csv")
 # y_test.to_csv("y_test.csv")
 
-df.to_csv("Homework_4\datasets\df_1.csv")
+df.to_csv("Homework_4\datasets\df_2.csv")
 
 print("Data created")
